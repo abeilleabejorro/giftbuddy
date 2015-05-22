@@ -5,7 +5,6 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.create(campaign_params)
-    binding.pry
     redirect_to '/campaigns'
   end
 

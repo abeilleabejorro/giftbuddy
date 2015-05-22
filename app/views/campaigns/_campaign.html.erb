@@ -1,0 +1,18 @@
+
+<h1><%=campaign.description %></h1>
+<img src="<%=campaign.photo_url%>" alt="<%=campaign.description%>">
+
+<p>
+Deadline: <%=campaign.deadline%>
+</p>
+<p>
+Total: <%=campaign.total%>
+</p>
+
+
+This campaign is for: 
+<%= render campaign.receiver %>
+
+Here are your pledges so far: 
+<%= render campaign.pledges %>
+

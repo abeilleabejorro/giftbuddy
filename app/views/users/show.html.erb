@@ -1,0 +1,21 @@
+<h1>Hello <%= @user.name %> </h1>
+<h3><%= @user.email %></h3>
+
+
+<h3>Here are your campaigns</h3>
+<%= render @user.campaigns %>
+
+<h3>Start a new Campaign</h3>
+
+<%= form_for Campaign.new do |f| %>
+  <%= f.hidden_field :receiver_id, value: @user.id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline %>
+  <%= f.label :total %>
+  <%= f.number_field :total%>
+  <%= f.submit %>
+<% end %>

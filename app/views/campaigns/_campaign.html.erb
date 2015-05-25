@@ -10,6 +10,17 @@ Total: <%=campaign.total%>
 </p>
 
 
+
+<%= form_for Pledge.new do |f| %>
+
+  <%= f.hidden_field :giver_id, value: 1 %>
+  <%= f.hidden_field :campaign_id, value: campaign.id %>
+  <%= f.label :amount %>
+  <%= f.number_field :amount%>
+
+  <%= f.submit %>
+<% end %>
+
 This campaign is for: 
 <%= render campaign.receiver %>
 

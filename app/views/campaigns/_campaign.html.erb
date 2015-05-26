@@ -1,9 +1,8 @@
 
 <div class="panel panel-success">
   <div class="panel-heading">
-
-    <h3 class="text-center"><%=campaign.title %></h3>
-    <h4 class="text-center">For <%=campaign.receiver.name %></h4>
+    <h3 class="text-center"><%=link_to campaign.title, campaign %></h3>
+    <h4 class="text-center">For <%=link_to campaign.receiver.name, campaign.receiver %></h4>
   </div>
 
 

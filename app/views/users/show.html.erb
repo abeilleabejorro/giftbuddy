@@ -1,14 +1,17 @@
-<h1>Hello <%= @user.name %> </h1>
-<h3><%= @user.email %></h3>
 
 
-<h3>Here are your campaigns</h3>
+<h3>Here are <%=@user.name%>'s campaigns</h3>
 <%= render @user.campaigns %>
+
+<%= button_to "Edit", edit_campaign_path, :class => "btn btn-warning", :method => :get %>
+
 
 <h3>Start a new Campaign</h3>
 
 <%= form_for Campaign.new do |f| %>
   <%= f.hidden_field :receiver_id, value: @user.id %>
+    <%= f.label :title %>
+  <%= f.text_field :title %>
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.label :photo_url %>
@@ -19,3 +22,6 @@
   <%= f.number_field :total%>
   <%= f.submit %>
 <% end %>
+
+
+

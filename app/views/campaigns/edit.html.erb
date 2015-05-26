@@ -1,0 +1,17 @@
+<h3>Edit your Campaign</h3>
+
+
+
+<%= form_for @campaign do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline %>
+  <%= f.label :total %>
+  <%= f.number_field :total%>
+  <%= f.submit %>
+<% end %>

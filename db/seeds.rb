@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-seph = User.create(name: "Seph", email: "sephkramer@example.com")
+seph = User.create(name: "Seph", email: "sephkramer@example.com", password: "flatiron")
 
-sam = User.create(name: "Sam", email: "sam@example.com")
+sam = User.create(name: "Sam", email: "sam@example.com", password: "flatiron")
 
-emily = User.create(name: "Emily", email: "emily@example.com")
+emily = User.create(name: "Emily", email: "emily@example.com", password: "flatiron")
 
-new_purse = Campaign.create(description: "I need a new fancy purse", photo_url: "http://content.purseblog.com/images/2010/05/Louis-Vuitton-Speedy.jpg", deadline: Time.now, total: 1000 )
+new_purse = Campaign.create(title: "I need a new fancy purse", photo_url: "http://content.purseblog.com/images/2010/05/Louis-Vuitton-Speedy.jpg", deadline: Time.now, total: 1000, description:"I reaaaally really really really want a new purse to help me look fancy out on the town blah blah blah blah blah." )
 
 new_purse.receiver_id = emily.id
 
@@ -26,6 +26,20 @@ sam_pledge = Pledge.create(amount: 1000, campaign_id: new_purse.id, giver_id: sa
 new_purse.pledges << seph_pledge
 new_purse.pledges << sam_pledge
 
+
+new_tv = Campaign.create(title: "Big screen TV please!", photo_url: "http://www.samsung.com/us/2012-smart-blu-ray-player/img/tv-front.png", deadline: Time.now, total: 700, description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." )
+new_tv.receiver_id = seph.id
+new_tv.save
+
+new_tv.pledges << seph_pledge
+new_tv.pledges << sam_pledge
+
+new_pool = Campaign.create(title: "Above Ground Pool", photo_url: "http://emeraldoutdoorliving.com/wp-content/uploads/2012/03/DoughBoySwimmingPools_PresitgeOv.jpg", deadline: Time.now, total: 1400, description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." )
+new_pool.receiver_id = sam.id
+new_pool.save
+
+new_pool.pledges << seph_pledge
+new_pool.pledges << sam_pledge
 
 
 

@@ -1,32 +1,72 @@
 
-<h1><%=campaign.description %></h1>
-<img src="<%=campaign.photo_url%>" alt="<%=campaign.description%>">
-
-<p>
-Deadline: <%=campaign.deadline%>
-</p>
-<p>
-Total: <%=campaign.total%>
-</p>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="text-center"><%=link_to campaign.title, campaign %></h3>
+    <h4 class="text-center">For <%=link_to campaign.receiver.name, campaign.receiver %></h4>
+  </div>
 
 
-<% if logged_in? %>
 
-  <%= form_for Pledge.new do |f| %>
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+      <img class="campaign-photo img-responsive" src="<%=campaign.photo_url%>" alt="<%=campaign.description%>">
+    </div>
 
-    <%= f.hidden_field :giver_id, value: current_user.id %>
-    <%= f.hidden_field :campaign_id, value: campaign.id %>
-    <%= f.label :amount %>
-    <%= f.number_field :amount%>
+    <div class="campaign-details col-md-5">
 
-    <%= f.submit %>
-  <% end %>
+      <p>
+      Deadline: <%=campaign.pretty_date%>
+      </p>
+      <p>
+      Total: <%=campaign.total%>
+      </p>
+      <p>
+      Total contributions: <%=campaign.total_contributed%>
+      </p>
+      <p>
+      Amount left: <%=campaign.amount_left%>
+      </p>
+      <p>
+      <%=campaign.description%>
+      </p>
 
-<% end %>
 
-This campaign is for: 
-<%= render campaign.receiver %>
 
-Here are your pledges so far: 
-<%= render campaign.pledges %>
+
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+  </div>
+
+
+
+    <% if logged_in? %>
+
+      <%= form_for Pledge.new do |f| %>
+
+        <%= f.hidden_field :giver_id, value: current_user.id %>
+        <%= f.hidden_field :campaign_id, value: campaign.id %>
+        <%= f.label :amount %>
+        <%= f.number_field :amount%>
+
+        <%= f.submit %>
+      <% end %>
+
+    <% end %>
+
+    <div class="container">
+       <h3 class="text-center"> Here are your pledges so far: </h3>
+
+        <div class="row">
+
+          <%= render campaign.pledges %>
+
+        </div>
+
+    </div>
+</div>
 

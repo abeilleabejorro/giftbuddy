@@ -1,5 +1,6 @@
 class PledgesController < ApplicationController
 
+
   def create
     @pledge = Pledge.create(pledge_params)
     redirect_to "/campaigns/#{@pledge.campaign_id}"

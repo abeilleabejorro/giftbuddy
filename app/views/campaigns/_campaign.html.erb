@@ -2,7 +2,7 @@
 <div class="panel panel-success">
   <div class="panel-heading">
 
-    <h3 class="text-center"><%=campaign.description %></h3>
+    <h3 class="text-center"><%=campaign.title %></h3>
     <h4 class="text-center">For <%=campaign.receiver.name %></h4>
   </div>
 
@@ -29,6 +29,9 @@
       <p>
       Amount left: <%=campaign.amount_left%>
       </p>
+      <p>
+      <%=campaign.description%>
+      </p>
 
 
 
@@ -41,20 +44,30 @@
   </div>
 
 
-  <% if logged_in? %>
 
-    <%= form_for Pledge.new do |f| %>
+    <% if logged_in? %>
 
-      <%= f.hidden_field :giver_id, value: current_user.id %>
-      <%= f.hidden_field :campaign_id, value: campaign.id %>
-      <%= f.label :amount %>
-      <%= f.number_field :amount%>
+      <%= form_for Pledge.new do |f| %>
 
-      <%= f.submit %>
+        <%= f.hidden_field :giver_id, value: current_user.id %>
+        <%= f.hidden_field :campaign_id, value: campaign.id %>
+        <%= f.label :amount %>
+        <%= f.number_field :amount%>
+
+        <%= f.submit %>
+      <% end %>
+
     <% end %>
 
-  <% end %>
-  Here are your pledges so far: 
-  <%= render campaign.pledges %>
+    <div class="container">
+       <h3 class="text-center"> Here are your pledges so far: </h3>
+
+        <div class="row">
+
+          <%= render campaign.pledges %>
+
+        </div>
+
+    </div>
 </div>
 

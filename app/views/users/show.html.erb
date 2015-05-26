@@ -1,10 +1,11 @@
 
 
 <h3>Here are <%=@user.name%>'s campaigns</h3>
-<%= render @user.campaigns %>
 
-<%= button_to "Edit", edit_campaign_path, :class => "btn btn-warning", :method => :get %>
-
+<% @user.campaigns.each do |campaign|  %>
+  <%= render campaign %>
+  <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning", :method => :get %>
+<% end %>
 
 <h3>Start a new Campaign</h3>
 

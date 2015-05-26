@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate!, except: :destroy
   before_action :boot_if_logged_in, except: :destroy
   
   def new

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'campaigns#index'
 
   get '/users/set-up', to: 'users#setup', as: 'set_up'
+  get '/oauth/callback', to: 'users#oauth_callback'
 
   resources :pledges
 

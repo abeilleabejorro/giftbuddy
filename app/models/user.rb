@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     self.campaigns
   end
 
+  def connected_to_stripe?
+    !!self.stripe_user_id
+  end
+
 end

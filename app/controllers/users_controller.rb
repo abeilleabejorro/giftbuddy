@@ -22,14 +22,16 @@ class UsersController < ApplicationController
 
     # Make a request to the access_token_uri endpoint t   o get an access_token
     @resp = client.auth_code.get_token(code, :params => {:scope => 'read_write'})
-    @access_token = @resp.token
+    # @access_token = @resp.token
 
-
-    #save the token in the database
-    #redirect to set-up page
-
-    # Use the access_token as you would a regular live-mode API key
-    # TODO: Stripe logic
+    @user = current_user
+    @user.stripe_publishable_key = @resp.params["stripe_publishable_key"]
+    @user.stripe_user_id = @resp.params["stripe_user_id"]
+    @user.access_token = @resp.token
+    @user.refresh_token = @resp.refresh_token
+    @user.save
+   
+    redirect_to '/users/set-up'
 
   end
 

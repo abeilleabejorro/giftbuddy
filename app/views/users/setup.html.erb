@@ -1,0 +1,8 @@
+<h1>Hello!</h1>
+
+<a href="https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id=ca_6J3KixlvtpD4XmJXYIGDECNlNGiEH1oU&amp;scope=read_write" class="stripe-connect"><span>Connect with Stripe</span></a>
+
+<% @user.pending_campaigns.each do |campaign|  %>
+  <%= render campaign %>
+  <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning", :method => :get %>
+<% end %>

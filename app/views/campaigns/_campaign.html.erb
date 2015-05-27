@@ -46,15 +46,22 @@
 
     <% if logged_in? %>
 
-      <%= form_for Pledge.new do |f| %>
+            
 
-        <%= f.hidden_field :giver_id, value: current_user.id %>
-        <%= f.hidden_field :campaign_id, value: campaign.id %>
-        <%= f.label :amount %>
-        <%= f.number_field :amount%>
+      <%= #form_for Pledge.new do |f| %>
 
-        <%= f.submit %>
-      <% end %>
+        <%=# f.hidden_field :giver_id, value: current_user.id %>
+        <%=# f.hidden_field :campaign_id, value: campaign.id %>
+        <%=# f.label :amount %>
+        <%=# f.number_field :amount%>
+
+        <%= #f.submit %>
+
+         <% end %>
+
+        <% else %>
+
+        <h4> Log in to give <%=campaign.receiver.name %> some money! </h4>
 
     <% end %>
 

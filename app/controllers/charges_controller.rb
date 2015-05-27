@@ -24,8 +24,13 @@ def create
     :currency    => 'usd'},
     :stripe_account => stripe_id)
 
-  flash[:notice] = "Charge of #{@amount/100} was succesful. We think with 80% confidence. Thanks!"
+  @pledge = Pledge.create(amount: @amount/100, campaign_id: @campaign.id, giver_id: current_user.id)
+
+
+  flash[:notice] = "Charge of #{@amount/100} was succesful. This is the pledge: #{@pledge.amount} We think with 80% confidence. Thanks!"
   redirect_to @campaign 
+
+  
 
 rescue Stripe::CardError => e
   flash[:error] = e.message

@@ -2,17 +2,24 @@ Rails.application.routes.draw do
 
   root 'campaigns#index'
 
+  get '/users/set-up', to: 'users#setup', as: 'set_up'
+  get '/oauth/callback', to: 'users#oauth_callback'
+
   resources :pledges
 
   resources :campaigns
 
   resources :users
 
+  resources :charges
+
+
   get '/sign-up', to: 'registrations#new'
   post '/sign-up', to: 'registrations#create'
   get '/sign-in', to: 'sessions#new'
   post '/sign-in', to: 'sessions#create'
   delete '/sign-out', to: 'sessions#destroy', as: 'sign_out'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

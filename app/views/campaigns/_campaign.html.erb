@@ -46,15 +46,25 @@
 
     <% if logged_in? %>
 
-      <%= form_for Pledge.new do |f| %>
+            
+          <%= form_tag charges_path do %>
+            <article>
+              <label for="<%=campaign.id%>-amount">Amount</label>
+              <input type="number" name="amount" id="<%=campaign.id%>-amount" value="">
+              <input type="hidden" name="campaign-id" value="<%=campaign.id%>">
 
-        <%= f.hidden_field :giver_id, value: current_user.id %>
-        <%= f.hidden_field :campaign_id, value: campaign.id %>
-        <%= f.label :amount %>
-        <%= f.number_field :amount%>
 
-        <%= f.submit %>
-      <% end %>
+            </article>
+
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="<%= campaign.title %>"
+                    data-amount=$('#<%=campaign.id%>-amount').val()+"00"></script>
+          <% end %>
+
+        <% else %>
+
+          <h4> Log in to give <%=campaign.receiver.name %> some money! </h4>
 
     <% end %>
 

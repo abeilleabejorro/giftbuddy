@@ -4,14 +4,14 @@
 
 <%= form_for @campaign do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, required: true %>
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, required: true %>
   <%= f.label :photo_url %>
   <%= f.text_field :photo_url %>
   <%= f.label :deadline %>
-  <%= f.date_field :deadline %>
+  <%= f.date_field :deadline, required: true %>
   <%= f.label :total %>
-  <%= f.number_field :total%>
+  <%= f.number_field :total, required: true%>
   <%= f.submit %>
 <% end %>

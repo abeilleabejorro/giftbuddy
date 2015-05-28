@@ -1,9 +1,42 @@
 
 
-  <div class="panel panel-default col-md-4">
+<!--   <div class="panel panel-default col-md-4">
    <div class="panel-body">
-      <%= pledge.amount %>
-      <%= render pledge.giver %>
+      <%#= pledge.amount %>
+      <%#= render pledge.giver %>
 
     </div>
-  </div>
+  </div> -->
+
+
+
+
+
+              <!-- SINGLE PRODUCT -->
+<div class="col-md-3">
+  <div class="item" style="height: 200px;">
+    <div class="item-overlay">
+    </div>
+    <div class="item-content">
+      <div class="item-top-content">
+        <div class="item-top-content-inner">
+          <div class="item-product">
+            <div class="item-top-title">
+              <h2>$<%= pledge.amount %></h2>  <!-- PRODUCT TITLE-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ITEM HOVER CONTENT-->
+       <div class="item-add-content">
+         <div class="item-add-content-inner">
+           <div class="section">
+             <p>
+               From <%= pledge.giver.name %>
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div> <!-- / END FIRST ITEM -->

@@ -50,7 +50,7 @@
           <%= form_tag charges_path do %>
             <article>
               <label for="<%=campaign.id%>-amount">Amount</label>
-              <input type="number" name="amount" id="<%=campaign.id%>-amount" value="">
+              <input type="number" name="amount" id="<%=campaign.id%>-amount" value="" >
               <input type="hidden" name="campaign-id" value="<%=campaign.id%>">
 
 
@@ -64,14 +64,14 @@
 
         <% else %>
 
-          <h4> Log in to give <%=campaign.receiver.name %> some money! </h4>
+          <h4> <%= link_to "Log in to give some money!", sign_in_path %>   </h4>
 
     <% end %>
 
     <div class="container">
        <h3 class="text-center"> Here are your pledges so far: </h3>
 
-        <div class="row">
+        <div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
 
           <%= render campaign.pledges %>
 

@@ -5,15 +5,18 @@
   <% end %>
 </ul>
 <% end %>
+
 <h1>Sign in!</h1>
 <%= form_tag sign_in_path do %>
   <div>
     <%= label_tag :email %>
-    <%= email_field_tag :email %>
+    <%= email_field_tag :email, nil, required: true %>
   </div>
   <div>
     <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password,  nil, required: true %>
   </div>
   <%= submit_tag "Sign in!" %>
 <% end %>
+
+ <%= button_to "Create an Account", sign_up_path, :class => "btn btn-default", :method => :get %>

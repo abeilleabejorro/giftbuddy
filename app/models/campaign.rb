@@ -15,4 +15,7 @@ class Campaign < ActiveRecord::Base
   def pretty_date
     self.deadline.strftime("%B %d, %Y")
   end
+
+
+
 end

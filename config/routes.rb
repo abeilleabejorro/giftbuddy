@@ -14,11 +14,16 @@ Rails.application.routes.draw do
   resources :charges
 
 
+
+
   get '/sign-up', to: 'registrations#new'
   post '/sign-up', to: 'registrations#create'
   get '/sign-in', to: 'sessions#new'
   post '/sign-in', to: 'sessions#create'
   delete '/sign-out', to: 'sessions#destroy', as: 'sign_out'
+
+  post '/launch/:id', to: 'campaigns#launch', as: 'launch'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

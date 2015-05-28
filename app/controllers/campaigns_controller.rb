@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  skip_before_action :authenticate!, only: [:index, :show]
+  skip_before_action :authenticate!, only: [:index, :show, :new]
 
 
   def index 
@@ -8,7 +8,9 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.create(campaign_params)
-    redirect_to @campaign
+    @campaign.status = "Pending"
+    @campaign.save
+    redirect_to set_up_path
   end
 
   def show
@@ -30,6 +32,26 @@ class CampaignsController < ApplicationController
     @campaign.update(campaign_params)
     redirect_to @campaign
   end
+
+  def new 
+    if logged_in?
+      @campaign = Campaign.new
+    else
+      redirect_to sign_in_path, notice: "You have to be logged in to do that."
+    end
+
+  end 
+
+  def launch
+    @campaign = Campaign.find(params[:id])
+    if @campaign.receiver.connected_to_stripe?
+      @campaign.status = "Live"
+      @campaign.save 
+      redirect_to @campaign, notice: "Your campaign is live. The money is going to roll in!"
+    else
+      redirect_to set_up_path, notice: "You have to connect your account to stripe."  
+    end 
+  end 
 
 
   def campaign_params

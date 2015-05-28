@@ -7,22 +7,7 @@
   <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning", :method => :get %>
 <% end %>
 
-<h3>Start a new Campaign</h3>
 
-<%= form_for Campaign.new do |f| %>
-  <%= f.hidden_field :receiver_id, value: @user.id %>
-    <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :photo_url %>
-  <%= f.text_field :photo_url %>
-  <%= f.label :deadline %>
-  <%= f.date_field :deadline %>
-  <%= f.label :total %>
-  <%= f.number_field :total%>
-  <%= f.submit %>
-<% end %>
 
 
 

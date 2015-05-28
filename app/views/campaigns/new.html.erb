@@ -1,0 +1,16 @@
+<h3>Start a new Campaign</h3>
+
+<%= form_for @campaign do |f| %>
+  <%= f.hidden_field :receiver_id, value: current_user.id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline %>
+  <%= f.label :total %>
+  <%= f.number_field :total%>
+  <%= f.submit %>
+<% end %>

@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def pending_campaigns
-    ##should filter only pending campaigns
-    self.campaigns
+    self.campaigns.where(status: "Pending")
   end
 
   def connected_to_stripe?

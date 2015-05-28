@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
     !!self.stripe_user_id
   end
 
+  def live_campaigns
+    self.campaigns.where(status: "Live")
+  end
+
 end

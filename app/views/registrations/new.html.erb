@@ -10,6 +10,10 @@
 <h1>Sign up!</h1>
 
 <%= form_for @user, url: sign_up_path do |f| %>
+    <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
   <div>
     <%= f.label :email %>
     <%= f.email_field :email %>
@@ -27,3 +31,6 @@
   <%= f.submit "Create Account" %>
 
 <% end %>
+
+<h4> Already have an Account? Sign in here</h4> 
+ <%= button_to "Sign In", sign_in_path, :class => "btn btn-default", :method => :get %>

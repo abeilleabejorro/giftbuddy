@@ -1,4 +1,5 @@
-<% if @user.errors.any? %>
+
+ <% if @user.errors.any? %>
 <ul>
   <% @user.errors.full_messages.each do |error| %>
     <li><%= error %></li>
@@ -6,17 +7,32 @@
 </ul>
 <% end %>
 
-<h1>Sign in!</h1>
+
+<h3>GiftBuddy Sign In!</h3> 
+<br>
 <%= form_tag sign_in_path do %>
-  <div>
-    <%= label_tag :email %>
+  <div  class = "form-group" >
+    <%= label_tag :email  %>
     <%= email_field_tag :email, nil, required: true %>
   </div>
-  <div>
+
+  <div class = "form-group">
     <%= label_tag :password %>
     <%= password_field_tag :password,  nil, required: true %>
   </div>
-  <%= submit_tag "Sign in!" %>
-<% end %>
 
+  <div class = "form-group">
+  <%= submit_tag "Sign in!", :class => "btn btn-success" %>
+  </div>
+
+<% end %>
+<br>
+<br>
+<br>
+<div class = "form-group">
+  <h5>No Account? Sign up here!</h5>
+</div>
+
+<div class = "form-group">
  <%= button_to "Create an Account", sign_up_path, :class => "btn btn-default", :method => :get %>
+ <div>

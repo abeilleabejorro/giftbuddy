@@ -1,16 +1,29 @@
 <h3>Start a new Campaign</h3>
+<br>
 
 <%= form_for @campaign do |f| %>
   <%= f.hidden_field :receiver_id, value: current_user.id %>
+<br>
+<br>
   <%= f.label :title %>
   <%= f.text_field :title, required: true %>
+<br>
+<br>
   <%= f.label :description %>
   <%= f.text_area :description, required: true %>
+<br>
+<br>
   <%= f.label :photo_url %>
   <%= f.text_field :photo_url %>
+<br>
+<br>
   <%= f.label :deadline %>
   <%= f.date_field :deadline, required: true %>
+<br>
+<br>
   <%= f.label :total %>
   <%= f.number_field :total, required: true%>
-  <%= f.submit %>
+<br>
+<br>
+  <%= f.submit, :class => "btn btn-success" %>
 <% end %>

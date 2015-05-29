@@ -16,6 +16,18 @@ class Campaign < ActiveRecord::Base
     self.deadline.strftime("%B %d, %Y")
   end
 
+  def days_left
+    #86400 seconds in a day
+    time_left = self.deadline - Time.now 
+    if time_left < -84600
+      return 0
+    else
+      return (time_left / 84600).ceil + 1
+    end
+  end
 
+  def progress_percent
+    ((self.total_contributed/self.total.to_f) * 100).round
+  end
 
 end

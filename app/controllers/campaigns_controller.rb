@@ -9,6 +9,12 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.create(campaign_params)
     @campaign.status = "Pending"
+    if @campaign.photo_url == ""
+      @campaign.photo_url = ["/gift-1.jpg",
+        "/gift-2.jpg",
+        "/gift-3.jpg",
+        "/gift-4.jpg"].sample
+    end
     @campaign.save
     redirect_to set_up_path
   end

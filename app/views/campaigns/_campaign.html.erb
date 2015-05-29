@@ -2,7 +2,7 @@
 <div class="container">
   
   <!-- SECTION HEADER -->
-  <% if campaign.days_left == 0 || campaign.status = "Pending" %>
+  <% if campaign.days_left == 0 || campaign.status == "Pending" %>
   <div class="section-header bg-warning">
   <% else %>
   <div class="section-header bg-success">
@@ -15,6 +15,15 @@
     <h6>
       For <%=link_to campaign.receiver.name, campaign.receiver %> 
     </h6>
+  <% if campaign.complete %>
+    <h6><em>This campaign has been funded, but you can still send money if you really want.</em>
+    </h6>
+  <% end %>
+  <% if campaign.days_left == 0 %>
+    <h6><em>The deadline has passed for this campaign, but you can still send money if you really want.</em>
+    </h6>
+  <% end %>
+    
   </div>
   <!-- / END SECTION HEADER -->
   <!-- PROJECT DETAILS WILL BE LOADED HERE -->
@@ -24,7 +33,6 @@
         <img src="<%=campaign.photo_url%>" alt="" class="project-image">
       </div>
       <div class="col-lg-6 col-md-6">
-        <h3 class="dark-text">Mesterplan Homepage Design</h3>
         <div class="project-description">
            <%=campaign.description%>
         </div>

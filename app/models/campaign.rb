@@ -27,7 +27,15 @@ class Campaign < ActiveRecord::Base
   end
 
   def progress_percent
-    ((self.total_contributed/self.total.to_f) * 100).round
+    if self.complete
+      100
+    else
+      ((self.total_contributed/self.total.to_f) * 100).round
+    end
+  end
+
+  def complete
+    self.total_contributed >= self.total
   end
 
 end

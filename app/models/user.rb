@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :campaigns, :foreign_key => 'receiver_id'
   has_many :pledges, through: :campaigns, :foreign_key => 'receiver_id'
   has_secure_password
+  validates :name, presence: true
+  validates :email, uniqueness: true
+
 
   def pending_campaigns
     self.campaigns.where(status: "Pending")

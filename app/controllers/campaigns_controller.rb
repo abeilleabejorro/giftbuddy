@@ -3,7 +3,7 @@ class CampaignsController < ApplicationController
 
 
   def index 
-    @campaigns = Campaign.all
+    @campaigns = Campaign.where(status: "Live")
   end 
 
   def home
@@ -25,7 +25,10 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
-
+    #don't show to others if it's pending
+    if @campaign.status == "Pending" && (!logged_in? || @campaign.receiver_id != current_user.id) 
+      redirect_to '/', notice: "That campaign is not live."
+    end
   end
 
   def edit 

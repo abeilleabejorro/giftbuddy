@@ -1,4 +1,4 @@
-<section class="works" id="works">
+<section style="padding-top:30px">
 <div class="container">
   
   <!-- SECTION HEADER -->
@@ -63,7 +63,7 @@
        
         <%= form_tag charges_path do %>
             <label for="<%=campaign.id%>-amount">Amount</label>
-            <input type="number" name="amount" id="<%=campaign.id%>-amount" value="" >
+            <input type="number" name="amount" id="<%=campaign.id%>-amount" value="1" >
             <input type="hidden" name="campaign-id" value="<%=campaign.id%>">
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"

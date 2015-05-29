@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
 
-def new
-end
+# def new
+# end
 
 def create
 
@@ -11,8 +11,7 @@ def create
 
   # Amount in cents
   @amount = params[:amount].to_i*100
-  @fee = @amount/2
-
+  
   # customer = Stripe::Customer.create(
   #   :email => params[:stripeEmail],
   #   :card  => params[:stripeToken]
@@ -22,21 +21,20 @@ def create
     :source    => token,
     :amount      => @amount,
     :description => 'Giftbuddy Pledge',
-    :currency    => 'usd',
-    :application_fee => @fee},
+    :currency    => 'usd'},
     :stripe_account => stripe_id)
 
   @pledge = Pledge.create(amount: @amount/100, campaign_id: @campaign.id, giver_id: current_user.id)
 
 
-  flash[:notice] = "Charge of #{@amount/100} was succesful. Minus standard fees, you have given #{(@amount - @fee)/100}. We think with 80% confidence. Thanks!"
+  flash[:notice] = "Charge of $#{@amount/100} was succesful. Thanks!"
   redirect_to @campaign 
 
   
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to charges_path
+  redirect_to @campaign
 end
 
 end

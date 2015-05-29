@@ -1,10 +1,14 @@
 class CampaignsController < ApplicationController
-  skip_before_action :authenticate!, only: [:index, :show, :new]
+  skip_before_action :authenticate!, only: [:index, :show, :new, :home]
 
 
   def index 
     @campaigns = Campaign.all
   end 
+
+  def home
+    @campaigns = Campaign.all
+  end
 
   def create
     @campaign = Campaign.create(campaign_params)
@@ -63,7 +67,6 @@ class CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit(:title, :description, :photo_url, :deadline, :total, :receiver_id)
   end
-
 
 
 end

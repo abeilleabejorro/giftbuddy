@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 
   resources :charges
 
-
-
+  get '/home', to: 'campaigns#home', as: 'home'
 
   get '/sign-up', to: 'registrations#new'
   post '/sign-up', to: 'registrations#create'

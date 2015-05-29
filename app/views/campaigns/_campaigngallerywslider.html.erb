@@ -1,0 +1,68 @@
+
+<section class="products" data-type="background" data-speed="1" id="products" style="background-position: 50% -6976px;">
+<div class="color-overlay">
+<!--   <div class="container">
+ -->      
+    <!-- SECTION HEADER -->
+        <div class="section-header">
+    
+    <!-- SECTION TITLE -->
+    <h2 class="white-text">Campaigns</h2>
+    
+    <!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+    <h4 class="white-text">
+      Some great ways to give to your friends.
+    </h4>
+  </div>
+  <!-- / END SECTION HEADER -->
+    
+    <!-- PRODUCTS -->
+    <div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+            
+    <% @campaigns.each do | campaign | %>
+
+            <!-- SINGLE PRODUCT -->
+                <div class="col-md-3">
+        <div class="item" style = "background-image: url(<%=campaign.photo_url%>); background-repeat:no-repeat;">
+          <div class="item-overlay">
+          </div>
+          <div class="item-content">
+            <div class="item-top-content">
+              <div class="item-top-content-inner">
+                <div class="item-product">
+                  <div class="item-top-title">
+                    <h5> <%=campaign.title%> </h5>  <!-- PRODUCT TITLE-->
+                    <p class="subdescription">
+                    </p> <!-- PRODUCT DESCRIPTION-->
+                  </div>
+                </div>
+                <div class="item-product-price">
+                  <!-- PRICE -->
+                  <span class="price-num green-text"> <%= campaign.total  %> </span> 
+     
+                </div>
+              </div>
+            </div>
+            
+            <!-- ITEM HOVER CONTENT-->
+            <div class="item-add-content">
+              <div class="item-add-content-inner">
+                <div class="section">
+                  <p>
+                    Wanted by: <%=campaign.receiver.name%> 
+                  </p>
+                </div>
+                <div class="section">
+            <a href="/campaigns/<%=campaign.id%>" class="btn custom-button green-btn">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- / END FIRST ITEM -->
+    <% end %>
+      
+    </div> <!-- / END PRODUCTS LIST -->
+<!--   </div> --> <!-- / END CONTAINER -->
+</div> <!-- / END COLOR OVERLAY -->
+</section>

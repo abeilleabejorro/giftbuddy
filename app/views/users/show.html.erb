@@ -10,9 +10,29 @@
 <% unless @user.pending_campaigns.empty? %>
 <h3>Here are <%=@user.name%>'s pending campaigns</h3>
 
-<% @user.pending_campaigns.each do |campaign|  %>
-  <%= render campaign %>
-  <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning", :method => :get %>
-<% end %>
+  <!-- Beginning of Gallery View -->
+    <div class="row projects">
+      <div id="loader">
+        <div class="loader-icon"></div>
+      </div>
+      <div class="col-md-12" id="portfolio-list">
+        <!-- PORTFOLIO ITEMS-->
+        <ul class="cbp-rfgrid">
+
+
+          <% @user.pending_campaigns.each do |campaign|  %>
+
+          <%= render partial: 'campaigns/campaigngallerysingle', locals: {campaign: campaign} %>
+
+          <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning", :method => :get %>
+          <% end %>
+
+
+          <!-- ... -->
+        </ul>
+      </div>
+    </div>
+  <!-- END OF Gallery View-->
+
 <% end %>
 

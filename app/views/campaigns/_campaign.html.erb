@@ -1,99 +1,8 @@
-<% if campaign.days_left == 0 %>
-<div class="panel panel-warning">
-<% else %>
-<div class="panel panel-success">
-<% end %>
-  <div class="panel-heading">
-    <h3 class="text-center"><%=link_to campaign.title, campaign %></h3>
-    <h4 class="text-center">For <%=link_to campaign.receiver.name, campaign.receiver %></h4>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-5">
-      <img class="campaign-photo img-responsive" src="<%=campaign.photo_url%>" alt="<%=campaign.description%>">
-    </div>
-
-    <div class="campaign-details col-md-5">
-
-      <p>
-        Deadline: <%=campaign.pretty_date%>
-      </p>
-      <p>
-        Total: <%=campaign.total%>
-      </p>
-      <p>
-        Total contributions: <%=campaign.total_contributed%>
-      </p>
-      <p>
-        Amount left: <%=campaign.amount_left%>
-      </p>
-      <p>
-        Days Left: <%=campaign.days_left%>
-      </p>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=campaign.progress_percent%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=campaign.progress_percent%>%;">
-          <%=campaign.progress_percent%>%
-        </div>
-      </div>
-      <p>
-        <%=campaign.description%>
-      </p>
-
-
-
-
-    </div>
-
-    <div class="col-md-1">
-    </div>
-
-  </div>
-
-
-
-    <% if logged_in? %>
-
-            
-          <%= form_tag charges_path do %>
-            <article>
-              <label for="<%=campaign.id%>-amount">Amount</label>
-              <input type="number" name="amount" id="<%=campaign.id%>-amount" value="" >
-              <input type="hidden" name="campaign-id" value="<%=campaign.id%>">
-
-
-            </article>
-
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-description="<%= campaign.title %>"
-                    data-amount=$('#<%=campaign.id%>-amount').val()+"00"></script>
-          <% end %>
-
-        <% else %>
-
-          <h4> <%= link_to "Log in to give some money!", sign_in_path %>   </h4>
-
-    <% end %>
-
-       <h3 class="text-center"> Here are your pledges so far: </h3>
-
-        <div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
-
-          <%= render campaign.pledges %>
-
-        </div>
-
-</div>
-
 <section class="works" id="works">
 <div class="container">
   
   <!-- SECTION HEADER -->
-  <% if campaign.days_left == 0 %>
+  <% if campaign.days_left == 0 || campaign.status = "Pending" %>
   <div class="section-header bg-warning">
   <% else %>
   <div class="section-header bg-success">
@@ -167,7 +76,7 @@
 </div>
 
   <% unless campaign.pledges.empty? %>
-    <h3 class="text-center"> Here are your pledges so far: </h3>
+    <h3 class="text-center"> Contributions for this campaign: </h3>
 
     <div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
 

@@ -477,9 +477,16 @@ input:focus {
 }
 
 /*----  SECTION:  HOME > INTRO AND SHORT MSGS   ----*/
+.awesome {
+text-align: center;
+color: #C0C3CC;
+/*line-height:65px;*/
+font-size: 95px;
+}
+
 .intro {
 	text-align: center;
-	color: #FFF;
+	color: #ae0404;
 	margin-top: 25%;
 	line-height: 65px;
 	z-index: 0;

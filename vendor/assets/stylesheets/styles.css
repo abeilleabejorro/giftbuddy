@@ -20,7 +20,7 @@ body {
 	font-weight: normal;
 	overflow-x: hidden !important;
 	line-height: 25px;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 /* Internet Explorer 10 in Windows 8 and Windows Phone 8 Bug fix */
@@ -328,7 +328,7 @@ h6 {
 	border-radius: 4px;
 	background: rgba(255,255,255, 0.95);
 }
- textarea:hover, 
+/* textarea:hover, 
 input:hover, 
 textarea:active, 
 input:active, 
@@ -341,7 +341,7 @@ input:focus {
   -webkit-box-shadow:none !important;
           box-shadow:none !important;
         }
-
+*/
 /*---------------------------------------
  **   SECTION HEADERS                -----
 -----------------------------------------*/

@@ -22,7 +22,7 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
     #don't show to others if it's pending
-    if @campaign.status == "Pending" && @campaign.receiver_id != current_user.id
+    if @campaign.status == "Pending" && (!logged_in? || @campaign.receiver_id != current_user.id) 
       redirect_to '/', notice: "That campaign is not live."
     end
   end

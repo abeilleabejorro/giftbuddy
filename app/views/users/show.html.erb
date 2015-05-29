@@ -1,14 +1,14 @@
 
 
 <% if !@user.live_campaigns.empty? %>
-  <% if @user.id == current_user.id %>
+  <% if logged_in? && @user.id == current_user.id %>
     <h3>Here are your live campaigns</h3>
   <%else%>
     <h3>Here are <%=@user.name%>'s live campaigns</h3>
   <%end%>
   <% @user.live_campaigns.each do |campaign|  %>
     <%= render campaign %>
-    <% if @user.id == current_user.id %>
+    <% if logged_in? && @user.id == current_user.id %>
       <div class="row">
         <div class="col-md-4"></div>
         <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning col-md-4", :method => :get %>
@@ -19,7 +19,7 @@
   <h3><%=@user.name%> has no live campaigns at the moment</h3>
 <% end %>
 
-<% if @user.id == current_user.id && !@user.pending_campaigns.empty? %>
+<% if logged_in? && @user.id == current_user.id && !@user.pending_campaigns.empty? %>
 <h3>Here are your pending campaigns. <%=link_to "You can launch them here", set_up_path %> </h3>
 
   <!-- Beginning of Gallery View -->

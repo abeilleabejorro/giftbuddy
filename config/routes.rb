@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   get '/users/set-up', to: 'users#setup', as: 'set_up'
   get '/oauth/callback', to: 'users#oauth_callback'
 
-  resources :pledges
+  resources :pledges, only: [:create]
 
-  resources :campaigns
+  resources :campaigns, except: :destroy
 
-  resources :users
+  resources :users, only: [:show]
 
-  resources :charges
+  resources :charges, only: [:create]
 
 
 

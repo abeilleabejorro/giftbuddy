@@ -294,6 +294,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  mail
   oauth2 (~> 1.0.0)
   pg
   pry

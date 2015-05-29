@@ -29,6 +29,9 @@ gem 'oauth2', '~> 1.0.0'
 
 gem 'stripe'
 
+# Adding Mail
+gem 'mail'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

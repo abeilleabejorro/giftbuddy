@@ -16,6 +16,7 @@ class CampaignsController < ApplicationController
         "/gift-4.jpg"].sample
     end
     @campaign.save
+    UserMailer.welcome_email(current_user).deliver_now
     redirect_to set_up_path
   end
 

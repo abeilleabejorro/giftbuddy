@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "You've been signed in"
     else
+      @user = User.new
       @user.errors[:base] = "Bad username or password"
       render :new
     end

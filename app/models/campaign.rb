@@ -3,6 +3,11 @@ class Campaign < ActiveRecord::Base
   has_many :givers, through: :pledges
   belongs_to :receiver, :class_name => "User"
 
+  validates :title, presence: true
+  validates :receiver_id, presence: true
+  validates :description, presence: true
+  validates :deadline, presence: true
+  validates :total, presence: true
 
   def total_contributed
     self.pledges.sum(:amount)

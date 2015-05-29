@@ -1,24 +1,24 @@
 
-
-<% if !@user.live_campaigns.empty? %>
-  <% if logged_in? && @user.id == current_user.id %>
-    <h3>Here are your live campaigns</h3>
-  <%else%>
-    <h3>Here are <%=@user.name%>'s live campaigns</h3>
-  <%end%>
-  <% @user.live_campaigns.each do |campaign|  %>
-    <%= render campaign %>
+<div>
+  <% if !@user.live_campaigns.empty? %>
     <% if logged_in? && @user.id == current_user.id %>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning col-md-4", :method => :get %>
-        <div class="col-md-4"></div>
-    <% end %>   
+      <h3>Here are your live campaigns</h3>
+    <%else%>
+      <h3>Here are <%=@user.name%>'s live campaigns</h3>
+    <%end%>
+    <% @user.live_campaigns.each do |campaign|  %>
+      <%= render campaign %>
+      <% if logged_in? && @user.id == current_user.id %>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning col-md-4", :method => :get %>
+          <div class="col-md-4"></div>
+      <% end %>   
+    <% end %>
+  <% else %>
+    <h3><%=@user.name%> has no live campaigns at the moment</h3>
   <% end %>
-<% else %>
-  <h3><%=@user.name%> has no live campaigns at the moment</h3>
-<% end %>
-
+</div>
 <% if logged_in? && @user.id == current_user.id && !@user.pending_campaigns.empty? %>
 <h3>Here are your pending campaigns. <%=link_to "You can launch them here", set_up_path %> </h3>
 
@@ -31,13 +31,11 @@
         <!-- PORTFOLIO ITEMS-->
         <ul class="cbp-rfgrid">
 
-
-          <% @user.pending_campaigns.each do |campaign|  %>
-
-          <%= render partial: 'campaigns/campaigngallerysingle', locals: {campaign: campaign} %>
-
-          <%= button_to "Edit", edit_campaign_path(campaign), :class => "btn btn-warning", :method => :get %>
-          <% end %>
+          <div class="row">
+            <% @user.pending_campaigns.each do |campaign|  %>
+              <%= render partial: 'campaigns/campaigngallerysingle', locals: {campaign: campaign} %>
+              <% end %>
+          </div>
 
 
           <!-- ... -->

@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.create(campaign_params)
     @campaign.status = "Pending"
-    if @campaign.photo_url = ""
+    if @campaign.photo_url == ""
       @campaign.photo_url = ["/gift-1.jpg",
         "/gift-2.jpg",
         "/gift-3.jpg",

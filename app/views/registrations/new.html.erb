@@ -7,40 +7,46 @@
 <% end %>
 
 
-<h3>Sign up for GiftBuddy!</h3>
-<br>
-<br>
-
-<%= form_for @user, url: sign_up_path do |f| %>
-    <div  class = "form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </div>
-
-  <div  class = "form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true %>
-  </div>
-
-  <div  class = "form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, :required => true %>
-  </div>
-
-  <div  class = "form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :required => true %>
-  </div>   
-
-  <div  class = "form-group">
-    <%= f.submit "Create Account", :class => "btn btn-success" %>
-  </div>
-
-<% end %>
-<br>
+<h1 id="formcolor">Sign up for GiftBuddy!</h1>
 <br>
 
-<h4> Have an account? Sign in:</h4> 
- <%= button_to "Sign In", sign_in_path, :class => "btn btn-default", :method => :get %>
+<div class="boxed">
+    <%= form_for @user, url: sign_up_path do |f| %>
+        <br>
+          <%= f.label :name %>
+          <br>
+          <%= f.text_field :name, :required => true %>
+        <br>
+        <br>
+
+         <%= f.label :email %>
+        <br>
+          <%= f.email_field :email, :required => true %>
+        <br>
+        <br>
+
+          <%= f.label :password %>
+        <br>
+          <%= f.password_field :password, :required => true %>
+        <br>
+        <br>
+
+          <%= f.label :password_confirmation %>
+          <br>
+          <%= f.password_field :password_confirmation, :required => true %>
+        <br>
+        <br>
+
+        <%= f.submit "Create Account", :class => "btn btn-success" %>
+        <br>
+
+        <% end %>
+      <br>
+      <br>
+
+      <h4 id="formcolor"> Have an account? Sign in:</h4> 
+       <%= button_to "Sign In", sign_in_path, :class => "btn btn-default", :method => :get %>
+     <br>
+</div>
 
 

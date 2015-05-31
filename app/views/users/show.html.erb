@@ -2,7 +2,7 @@
 <div>
   <% if !@user.live_campaigns.empty? %>
     <% if logged_in? && @user.id == current_user.id %>
-      <h3>Here are your live campaigns</h3>
+      <h3 id="formcolor">Here are your live campaigns</h3>
     <%else%>
       <h3>Here are <%=@user.name%>'s live campaigns</h3>
     <%end%>
@@ -20,7 +20,7 @@
   <% end %>
 </div>
 <% if logged_in? && @user.id == current_user.id && !@user.pending_campaigns.empty? %>
-<h3>Here are your pending campaigns. <%=link_to "You can launch them here", set_up_path %> </h3>
+<h3 id="formcolor">Here are your pending campaigns. <%=link_to "You can launch them here", set_up_path %> </h3>
 
   <!-- Beginning of Gallery View -->
     <div class="row projects">

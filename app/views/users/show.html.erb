@@ -31,11 +31,9 @@
         <!-- PORTFOLIO ITEMS-->
         <ul class="cbp-rfgrid">
 
-          <div class="row">
             <% @user.pending_campaigns.each do |campaign|  %>
               <%= render partial: 'campaigns/campaigngallerysingle', locals: {campaign: campaign} %>
               <% end %>
-          </div>
 
 
           <!-- ... -->
@@ -45,4 +43,22 @@
   <!-- END OF Gallery View-->
 
 <% end %>
+<% if !@user.campaigns_donated_to.empty? %>
+<div>
+
+  <h3 id="formcolor">Here are campaigns that <%= @user.name %> has contributed to:</h3>
+  <div class="col-md-12" id="portfolio-list">
+    <!-- PORTFOLIO ITEMS-->
+    <ul class="cbp-rfgrid">
+      <% @user.campaigns_donated_to.each do |campaign|  %>
+         <%= render partial: 'campaigns/campaigngallerysingle', locals: {campaign: campaign} %>
+      <% end %>
+    </ul>
+  </div>
+    </div>
+
+</div>
+<% end %>
+
+
 

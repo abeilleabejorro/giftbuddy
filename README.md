@@ -3,7 +3,7 @@
 ## Description
 GiftBuddy is revolutionizing the gift giving and receiving industry by allowing users to let their friends and family know what they actually want, and letting many people give small amounts to purchase the item.
 
-Add a short description of your app.
+
 Our app allows users to start campaings for things they want or need, and allows others to micro-fund the campaigns!
 
 ## Screenshots

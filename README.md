@@ -1,8 +1,10 @@
 # Giftbuddy
 
 ## Description
+GiftBuddy is revolutionizing the gift giving and receiving industry by allowing users to let their friends and family know what they actually want, and letting many people give small amounts to purchase the item.
 
 Add a short description of your app.
+Our app allows users to start campaings for things they want or need, and allows others to micro-fund the campaigns!
 
 ## Screenshots
 
@@ -15,11 +17,15 @@ like?
 
 ## Features
 
-Bullet point some of the key features of your app here.
+Integrated with Stripe and made social with Twitter.
+
+
 
 ## Usage
 
-How do users use your app?
+Simply sign-up for an account and start creating campaigns, or start funding your loved ones' campaigns. 
+
+
 
 ## Development/Contribution
 

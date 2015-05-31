@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'campaigns#index'
+  root 'campaigns#home'
 
   get '/users/set-up', to: 'users#setup', as: 'set_up'
   get '/oauth/callback', to: 'users#oauth_callback'

@@ -3,10 +3,17 @@
   <div class="container">
     <div class="row">
       <%= button_to "Edit", edit_campaign_path(@campaign), :class => "btn btn-warning col-md-6", :method => :get %>
+
     <% if current_user.connected_to_stripe? && @campaign.status=="Pending"  %>
       <%= button_to "Launch", launch_path(@campaign), :class => "btn btn-success col-md-6", :method => :post %>      
     <% elsif @campaign.status=="Pending" %>
       <a href="https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id=<%=ENV['CLIENT_ID'] %>&amp;scope=read_write" class="btn btn-info col-md-6">You must connect to Stripe before you can launch this campaign</a>
+      <% else %>
+
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Hey friends, help me get my <%= @campaign.title %>" data-size="large" data-hashtags="GiftBuddy">Tweet</a>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
     <% end %>
 
     </div>

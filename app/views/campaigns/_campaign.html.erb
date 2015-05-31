@@ -58,18 +58,21 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
-          Give your buddy some money! Enter an amount here </h3>
-       
+          <h3 class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" id="formcolor"  >
+          Give your buddy some money! Enter an amount here: </h3>
+          <br>
         <%= form_tag charges_path do %>
+            
             <label for="<%=campaign.id%>-amount">Amount</label>
             <input type="number" name="amount" id="<%=campaign.id%>-amount" value="1" >
             <input type="hidden" name="campaign-id" value="<%=campaign.id%>">
+            
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="<%= campaign.title %>"
                   data-amount=$('#<%=campaign.id%>-amount').val()+"00"></script>
         <% end %>
+         
         </div>
       </div>
     </div>
@@ -83,9 +86,12 @@
   <% end %>
 
 </div>
+  <br>
+  <br>
+  <br> 
 
   <% unless campaign.pledges.empty? %>
-    <h3 class="text-center"> Contributions for this campaign: </h3>
+    <h3 class="text-center" id="formcolor"> Contributions for this campaign: </h3>
 
     <div class="row wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
 

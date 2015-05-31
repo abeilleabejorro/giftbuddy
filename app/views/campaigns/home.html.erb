@@ -3,15 +3,86 @@
   <!-- <br> -->
   <!-- <br> -->
 
-  <div class="jumbotron">
+<!--   <div class="jumbotron">
       <h1>Get stuff you really want</h1>
       <p>Stop giving cheapo gifts. GiftBuddy is a great way to pool together your money.</p>
       <p><a class="btn btn-primary btn-lg" href="/sign-up" role="button">Start A Campaign</a></p>
   </div>
+ -->
 
 
+<!-- START TEST CAROUSEL HERE -->
 
-<div class="container">
+
+<div id="carousel-giftbuddy" class="carousel slide" data-ride="carousel" data-interval="4000">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-giftbuddy" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-giftbuddy" data-slide-to="1"></li>
+    <li data-target="#carousel-giftbuddy" data-slide-to="2"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+        
+          <img src="/gift-4.jpg" alt="...">
+      
+      <div class="carousel-caption">
+          <h2>GiftBuddy</h2>
+            <p><a class="btn btn-primary btn-lg" href="/sign-up" role="button">Start A Campaign</a></p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/gift-2.jpg" alt="...">
+      <div class="carousel-caption">
+          <h2>Get them what they want!</h2>
+            
+      </div>
+    </div>
+    <div class="item">
+      <img src="/watch.png" alt="...">
+      <div class="carousel-caption">
+          <h2>Get what you want!</h2>
+           
+      </div>
+    </div>
+  </div>
+
+ 
+  <!-- Controls -->
+ <!--  <a class="left carousel-control" href="#carousel-giftbuddy" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-giftbuddy" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a> -->
+</div> <!-- Carousel -->
+<br>
+
+<!-- END CAROUSEL TEST FOR GIFTBUDDY -->
+
+
+<!-- RENDER THE GALLARY OF CAMPAIGNS -->
+
   <%= render partial: 'campaigngallerywslider' %>
-</div>
+
+
+<!-- END RENDER GALLARY OF CAMPAIGNS -->
+
+
+
+
+<!-- CONTROLS FOR CAROUSEL -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    $('.carousel').carousel({
+        interval: 4000
+    })
+</script>
+
+<!-- END CONTROLS FOR CAROUSEL -->
 

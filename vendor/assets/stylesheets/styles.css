@@ -1503,7 +1503,9 @@ footer {
 
 #carousel-giftbuddy{
 	width: 100%;
-
+/*	height: 560px;
+	display: block;
+*/
 }
 
 .carousel-control {

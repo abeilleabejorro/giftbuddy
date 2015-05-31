@@ -1,43 +1,45 @@
-<h1 id="formcolor">Edit your Campaign</h1>
-<br>
+<div class="container">
+    <h1 id="formcolor">Edit your Campaign</h1>
+    <br>
 
-<div class="boxed">
-    <%= form_for @campaign do |f| %>
-      <br>
-
-          <%= f.label :title %>
-          <br>
-          <%= f.text_field :title, required: true %>
-          <br>
+    <div class="boxed">
+        <%= form_for @campaign do |f| %>
           <br>
 
-          <%= f.label :description %>
-          <br>
-          <%= f.text_field :description, required: true %>
-          <br>
-          <br>
+              <%= f.label :title %>
+              <br>
+              <%= f.text_field :title, required: true %>
+              <br>
+              <br>
 
-          <%= f.label :photo_url %>
-          <br>
-          <%= f.text_field :photo_url %>
-          <br>
-          <br>
+              <%= f.label :description %>
+              <br>
+              <%= f.text_field :description, required: true %>
+              <br>
+              <br>
 
-          <%= f.label :deadline %>
-          <br>
-          <%= f.date_field :deadline, required: true %>
-          <br>
-          <br>
+              <%= f.label :photo_url %>
+              <br>
+              <%= f.text_field :photo_url %>
+              <br>
+              <br>
 
-          <%= f.label :total %>
-          <br>
-          <%= f.number_field :total, required: true%>
-          <br>
-          <br>
+              <%= f.label :deadline %>
+              <br>
+              <%= f.date_field :deadline, required: true %>
+              <br>
+              <br>
 
-          <%= f.submit :class => "btn btn-success"%>
-          <br>
-          <br>
+              <%= f.label :total %>
+              <br>
+              <%= f.number_field :total, required: true%>
+              <br>
+              <br>
 
-    <% end %>
-  </div>
+              <%= f.submit :class => "btn btn-success"%>
+              <br>
+              <br>
+
+        <% end %>
+      </div>
+</div>

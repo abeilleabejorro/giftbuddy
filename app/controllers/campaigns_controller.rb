@@ -8,6 +8,7 @@ class CampaignsController < ApplicationController
 
   def home
     @campaigns = Campaign.all
+    @campaigns = Campaign.where(status: "Live").order(created_at: :desc).limit(20)
   end
 
   def create
